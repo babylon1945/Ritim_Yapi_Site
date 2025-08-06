@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürünler - Ritim Yapı İnşaat Malzemeleri</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <div class="contact-info">
+                                                           <a href="tel:+903123858926" class="contact-link">
+                                       <i class="fas fa-phone"></i>
+                                       <span>(0312) 385 89 26</span>
+                                   </a>
+                                   <a href="mailto:ritiminsaat@gmail.com" class="contact-link">
+                                       <i class="fas fa-envelope"></i>
+                                       <span>ritiminsaat@gmail.com</span>
+                                   </a>
+                    </div>
+                </div>
+                <div class="top-bar-right">
+                    <a href="https://www.instagram.com/ritim_yapi/" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <img src="logo.webp" alt="Ritim Yapı Logo" class="logo-image">
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">Hakkımızda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link active">Ürünler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="brands.html" class="nav-link">Markalar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">İletişim</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1>Ürünlerimiz</h1>
+                <p class="header-subtitle">Kapsamlı inşaat malzemeleri ürün yelpazesi ile projelerinizi destekliyoruz</p>
+                <div class="header-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-boxes"></i>
+                        <span>Ürün Çeşitliliği</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>TSE Sertifikalı</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Hızlı Teslimat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ana Ürün Kategorilerimiz</h2>
+                <p>Geniş ürün yelpazemizle tüm inşaat malzemesi ihtiyaçlarınızı karşılıyoruz</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" onclick="openProductModal('yapi-malzemeleri')" style="background-image: url('yapi-malzemeleri.webp'); background-size: cover; background-position: center; position: relative;">
+                    <div class="rotating-logos">
+                        <img src="bastas.webp" alt="BAŞTAŞ" class="rotating-logo">
+                        <img src="https://s3-symbol-logo.tradingview.com/cimsa-cimento--big.svg" alt="ÇİMSA" class="rotating-logo">
+                        <img src="wallboard.png" alt="WALLBOARD" class="rotating-logo">
+                        <img src="stt-gazbeton.webp" alt="STT GAZBETON" class="rotating-logo">
+                        <img src="duzgun-bims.webp" alt="DÜZGÜN BİMS" class="rotating-logo">
+                    </div>
+                    <h3>YAPI MALZEMELERİ</h3>
+                    <div class="click-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Detaylar için tıklayın</span>
+                    </div>
+                </div>
+                <div class="service-card" onclick="openProductModal('yapi-kimyasallari')" style="background-image: url('yapi-kimyasallari.webp'); background-size: cover; background-position: center; position: relative;">
+                    <div class="rotating-logos">
+                        <img src="hammerfast (1).webp" alt="HAMMERFAST" class="rotating-logo">
+                        <img src="lucaser.webp" alt="LUCASER" class="rotating-logo">
+                        <img src="dayson.webp" alt="DAYSON" class="rotating-logo">
+                        <img src="akfix.webp" alt="AKFİX" class="rotating-logo">
+                        <img src="sista.webp" alt="SİSTA" class="rotating-logo">
+                    </div>
+
+                    <h3>YAPI KİMYASALLARI</h3>
+                    <div class="click-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Detaylar için tıklayın</span>
+                    </div>
+                </div>
+                <div class="service-card" onclick="openProductModal('boya-grubu')" style="background-image: url('boya-grubu.webp'); background-size: cover; background-position: center; position: relative;">
+                    <div class="rotating-logos">
+                        <img src="tek-boya (1).webp" alt="TEK BOYA" class="rotating-logo">
+                        <img src="polisan.webp" alt="POLİSAN" class="rotating-logo">
+                        <img src="filli-boya.webp" alt="FİLLİ BOYA" class="rotating-logo">
+                    </div>
+
+                    <h3>BOYA GRUBU</h3>
+                    <div class="click-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Detaylar için tıklayın</span>
+                    </div>
+                </div>
+                <div class="service-card" onclick="openProductModal('altyapi-urunleri')" style="background-image: url('altyapi-urunleri.webp'); background-size: cover; background-position: center; position: relative;">
+                    <div class="rotating-logos">
+                        <img src="https://images.seeklogo.com/logo-png/5/1/firat-boru-logo-png_seeklogo-54687.png" alt="FIRAT BORU" class="rotating-logo">
+                    </div>
+                    <h3>ALTYAPI ÜRÜNLERİ</h3>
+                    <div class="click-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Detaylar için tıklayın</span>
+                    </div>
+                </div>
+                <div class="service-card" onclick="openProductModal('yalitim-urunleri')" style="background-image: url('yalitim-urunleri.jpg'); background-size: cover; background-position: center; position: relative;">
+                    <div class="rotating-logos">
+                        <img src="https://images.seeklogo.com/logo-png/7/1/izocam-logo-png_seeklogo-74482.png" alt="İZOCAM" class="rotating-logo">
+                        <img src="https://scontent.fyei6-5.fna.fbcdn.net/v/t39.30808-6/346871623_656206699880174_7150658702123025488_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ljDrtBHCiFcQ7kNvwGo4HUB&_nc_oc=AdmFojh8A3vCuwi8u_87IXWm6wtYV21shQfN5pGaxOx7bAqhTDCZzSJltsXxbqySTjU&_nc_zt=23&_nc_ht=scontent.fyei6-5.fna&_nc_gid=hhJeXlX_TMTAOJi3BU4E6Q&oh=00_AfSCp9vX_f2Zxfh2_EHkB3d_Ak_V9RrJKfDhCn_BNLDO0A&oe=68934599" alt="PANELSAN" class="rotating-logo">
+                        <img src="ode.webp" alt="ODE" class="rotating-logo">
+                        <img src="btm.webp" alt="BTM" class="rotating-logo">
+                    </div>
+
+                    <h3>YALITIM ÜRÜNLERİ</h3>
+                    <div class="click-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Detaylar için tıklayın</span>
+                    </div>
+                </div>
+                <div class="service-card" onclick="openProductModal('hirdavat')" style="background-image: url('hirdavat.jpg'); background-size: cover; background-position: center; position: relative;">
+                    <div class="rotating-logos">
+                        <img src="dekor-logo-png_seeklogo-320260.png" alt="DEKOR" class="rotating-logo">
+                        <img src="stargil-firca.webp" alt="STARGİL" class="rotating-logo">
+                        <img src="akcali.webp" alt="AKÇALI" class="rotating-logo">
+                        <img src="hilti.png" alt="HILTI" class="rotating-logo">
+                        <img src="https://images.seeklogo.com/logo-png/5/1/firat-boru-logo-png_seeklogo-54687.png" alt="FIRAT BORU" class="rotating-logo">
+                    </div>
+
+                    <h3>HIRDAVAT</h3>
+                    <div class="click-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Detaylar için tıklayın</span>
+                    </div>
+                </div>
+                <div class="service-card" onclick="openProductModal('tesisat')" style="background-image: url('tesisat.jpg'); background-size: cover; background-position: center; position: relative;">
+                    <div class="rotating-logos">
+                        <img src="https://images.seeklogo.com/logo-png/5/1/firat-boru-logo-png_seeklogo-54687.png" alt="FIRAT BORU" class="rotating-logo">
+                        <img src="https://images.seeklogo.com/logo-png/7/1/izocam-logo-png_seeklogo-74482.png" alt="İZOCAM" class="rotating-logo">
+                        <img src="https://s3-symbol-logo.tradingview.com/cimsa-cimento--big.svg" alt="ÇİMSA" class="rotating-logo">
+                        <img src="bastas.webp" alt="BAŞTAŞ" class="rotating-logo">
+                        <img src="wallboard.png" alt="WALLBOARD" class="rotating-logo">
+                    </div>
+
+                    <h3>TESİSAT</h3>
+                    <div class="click-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Detaylar için tıklayın</span>
+                    </div>
+                </div>
+                <div class="service-card" onclick="openProductModal('is-guvenligi')" style="background-image: url('is-guvenligi.webp'); background-size: cover; background-position: center; position: relative;">
+                    <div class="rotating-logos">
+                        <img src="hilti.png" alt="HILTI" class="rotating-logo">
+                        <img src="https://images.seeklogo.com/logo-png/5/1/firat-boru-logo-png_seeklogo-54687.png" alt="FIRAT BORU" class="rotating-logo">
+                        <img src="https://images.seeklogo.com/logo-png/7/1/izocam-logo-png_seeklogo-74482.png" alt="İZOCAM" class="rotating-logo">
+                        <img src="bastas.webp" alt="BAŞTAŞ" class="rotating-logo">
+                        <img src="wallboard.png" alt="WALLBOARD" class="rotating-logo">
+                    </div>
+
+                    <h3>İŞ GÜVENLİĞİ</h3>
+                    <div class="click-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Detaylar için tıklayın</span>
+                    </div>
+                </div>
+                <div class="service-card" onclick="openProductModal('vitrifiye')" style="background-image: url('vitrifiye.webp'); background-size: cover; background-position: center; position: relative;">
+                    <div class="rotating-logos">
+                        <img src="https://www.eca.com.tr/assets/images/logo.png" alt="ECA" class="rotating-logo static-logo">
+                    </div>
+
+                    <h3>VİTRİFİYE</h3>
+                    <div class="click-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Detaylar için tıklayın</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Features Section -->
+    <section class="product-features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ürün Avantajlarımız</h2>
+                <p>Kaliteli ürünlerimizin sunduğu özel avantajlar</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>TSE Sertifikalı</h3>
+                    <p>Tüm ürünlerimiz TSE standartlarında üretilmekte ve kalite sertifikalarına sahiptir.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Hızlı Teslimat</h3>
+                    <p>Siparişlerinizi en kısa sürede projenize teslim ediyoruz. Acil ihtiyaçlarınız için özel çözümler.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Uzman Kadro</h3>
+                    <p>20 yıllık sektör deneyimine sahip uzman ekibimizle hizmetinizdeyiz.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Uygun Fiyat</h3>
+                    <p>Kaliteli ürünleri uygun fiyatlarla sunuyoruz. Toplu alımlarda özel indirimler.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Geniş Stok</h3>
+                    <p>Büyük depolama alanlarımızda tüm ürünlerimiz stokta bulunmaktadır.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Çevre Dostu</h3>
+                    <p>Çevre dostu ürünlerimiz ile sürdürülebilir yapılar inşa edin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tedarik Sürecimiz</h2>
+                <p>Malzemelerinizi en hızlı şekilde temin etmek için izlediğimiz adımlar</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Sipariş Alma</h3>
+                        <p>Müşteri ihtiyaçlarını analiz eder, ürün seçimi yapar ve detaylı fiyat teklifi hazırlarız.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Stok Kontrolü</h3>
+                        <p>Geniş stok ağımızdan ürünlerin mevcutluğunu kontrol eder ve rezervasyon yaparız.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Hazırlık ve Paketleme</h3>
+                        <p>Kalite kontrolü yapılan ürünleri güvenli şekilde paketler ve sevkiyata hazırlarız.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Hızlı Teslimat</h3>
+                        <p>Kendi filomuz ile hızlı teslimat sağlarız.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Kaliteli Malzemeler İçin Bizimle İletişime Geçin</h2>
+                <p>Projeleriniz için ihtiyacınız olan tüm inşaat malzemelerini uygun fiyatlarla temin edin.</p>
+                <a href="contact.html" class="btn btn-primary">Ücretsiz Teklif Alın</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-content">
+                    <div class="modal-icon">
+                        <i id="modalIcon" class="fas fa-box"></i>
+                    </div>
+                    <div class="modal-title-section">
+                        <h2 id="modalTitle">Ürün Detayları</h2>
+                        <div class="modal-subtitle" id="modalSubtitle">Kaliteli ve güvenilir ürünler</div>
+                    </div>
+                </div>
+                <span class="close" onclick="closeProductModal()">
+                    <i class="fas fa-times"></i>
+                </span>
+            </div>
+            <div class="modal-body">
+                <div class="product-details">
+                    <div class="product-hero">
+                        <div class="product-overview">
+                            <div class="product-description">
+                                <h3>Ürün Açıklaması</h3>
+                                <p id="modalDescription"></p>
+                            </div>
+                            <div class="product-highlights">
+                                <h3>Öne Çıkan Özellikler</h3>
+                                <div class="highlights-grid" id="modalHighlights"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-features-section">
+                        <div class="section-header">
+                            <h3><i class="fas fa-list-check"></i> Ürün Özellikleri</h3>
+                            <p>Bu kategorideki ürünlerimiz</p>
+                        </div>
+                        <div class="product-features-list" id="modalFeatures"></div>
+                    </div>
+                    <div class="product-cta">
+                        <div class="cta-content">
+                            <h3>Bu ürünler hakkında detaylı bilgi almak ister misiniz?</h3>
+                            <div class="cta-buttons">
+                                <a href="contact.html" class="btn btn-primary">
+                                    <i class="fas fa-envelope"></i>
+                                    İletişime Geçin
+                                </a>
+                                <a href="tel:+903123858926" class="btn btn-secondary">
+                                    <i class="fas fa-phone"></i>
+                                    Hemen Ara
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Hızlı Linkler</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="services.html">Ürünler</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ritim Yapı</h3>
+                    <p>Kaliteli inşaat malzemeleri ile projelerinizi destekliyoruz.</p>
+
+                </div>
+                <div class="footer-section">
+                    <h4>Ürün Kategorileri</h4>
+                    <ul>
+                        <li><a href="services.html">Çimento ve Harç</a></li>
+                        <li><a href="services.html">Demir ve Çelik</a></li>
+                        <li><a href="services.html">Yapı Kimyasalları</a></li>
+                        <li><a href="services.html">Seramik ve Fayans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Ostim OSB, 1568. Cd. No:28, Yenimahalle/Ankara</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Ostim OSB, Ferit Alnar Cd. No: 66, 06374 Yenimahalle/Ankara</p>
+                        <p><i class="fas fa-phone"></i> (0312) 385 89 26</p>
+                        <p><i class="fas fa-envelope"></i> ritiminsaat@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ritim Yapı. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
