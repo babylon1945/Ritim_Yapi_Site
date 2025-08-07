@@ -119,7 +119,8 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
 }
 
 .contact-link:hover {
-    color: #e74c3c;
+    color: white;
+    opacity: 0.8;
 }
 
 .contact-link i {
@@ -176,6 +177,16 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
     height: 100%;
     object-fit: contain;
     border-radius: 6px;
+}
+
+.logo-link {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.05);
 }
 
 .nav-logo:hover .logo-icon {
@@ -842,7 +853,7 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
 }
 
 .footer-section ul li a {
-    color: #bdc3c7;
+    color: white;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -863,6 +874,18 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
 .contact-info i {
     color: #fff;
     width: 20px;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: white;
+    opacity: 0.8;
+    text-decoration: underline;
 }
 
 .footer-bottom {
@@ -915,6 +938,11 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
 
     .nav-menu.active {
         left: 0;
+    }
+    
+    .page-header {
+        padding: 150px 0 60px;
+        margin-top: 0;
     }
 
     .hero h1 {
@@ -1370,21 +1398,14 @@ h1.visible, h2.visible, h3.visible, p.visible {
 
 /* Floating animation for cards */
 @keyframes floating {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    /* REMOVED */
 }
 
 .floating-animation {
-    animation: floating 3s ease-in-out infinite;
+    /* REMOVED */
 }
 
-/* Particle animations */
-@keyframes float {
-    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-}
+/* Particle animations - REMOVED */
 
 /* Ripple effect */
 @keyframes ripple {
@@ -1549,11 +1570,7 @@ h1.visible, h2.visible, h3.visible, p.visible {
     transform: translateY(0);
 }
 
-/* Hero title animation */
-.hero h1 {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
+/* Hero title animation - REMOVED */
 
 /* Loading animation */
 .loading {
@@ -1761,6 +1778,17 @@ h1.visible, h2.visible, h3.visible, p.visible {
     text-align: center;
     margin-bottom: 20px;
     line-height: 1.5;
+}
+
+.address-text a {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.address-text a:hover {
+    color: #c0392b;
+    text-decoration: underline;
 }
 
 .map-card .map {
@@ -2065,6 +2093,17 @@ h1.visible, h2.visible, h3.visible, p.visible {
 .contact-card p {
     color: #7f8c8d;
     line-height: 1.6;
+}
+
+.contact-card p a {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-card p a:hover {
+    color: #c0392b;
+    text-decoration: underline;
 }
 
 /* Company Story */

@@ -87,15 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
-    }
-});
+// Parallax effect for hero section - REMOVED
 
 // Active navigation link highlighting
 window.addEventListener('scroll', () => {
@@ -282,26 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // Parallax effect for hero section
-    let ticking = false;
-    function updateParallax() {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            const rate = scrolled * -0.3;
-            hero.style.transform = `translateY(${rate}px)`;
-        }
-        ticking = false;
-    }
-
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(updateParallax);
-            ticking = true;
-        }
-    }
-
-    window.addEventListener('scroll', requestTick);
+    // Parallax effect for hero section - REMOVED
 
     // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -329,25 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Typing effect for hero title
-    const heroTitle = document.querySelector('.hero h1');
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
-        heroTitle.style.opacity = '1';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                heroTitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-        
-        // Start typing effect after a delay
-        setTimeout(typeWriter, 500);
-    }
+    // Typing effect for hero title - REMOVED
 
     // Add loading animation
     window.addEventListener('load', () => {
@@ -414,53 +369,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Floating animation for cards
-    const addFloatingAnimation = () => {
-        const cards = document.querySelectorAll('.feature-card, .product-card, .service-card, .value-card, .team-member, .review-card');
-        cards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-            card.classList.add('floating-animation');
-        });
-    };
-    addFloatingAnimation();
+    // Floating animation for cards - REMOVED
 
-    // Particle effect for hero section
-    const createParticles = () => {
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            const particleContainer = document.createElement('div');
-            particleContainer.className = 'particle-container';
-            particleContainer.style.cssText = `
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                pointer-events: none;
-                z-index: 1;
-            `;
-            
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.cssText = `
-                    position: absolute;
-                    width: 2px;
-                    height: 2px;
-                    background: rgba(255, 255, 255, 0.3);
-                    border-radius: 50%;
-                    animation: float ${3 + Math.random() * 4}s linear infinite;
-                    left: ${Math.random() * 100}%;
-                    animation-delay: ${Math.random() * 2}s;
-                `;
-                particleContainer.appendChild(particle);
-            }
-            
-            hero.appendChild(particleContainer);
-        }
-    };
-    createParticles();
+    // Particle effect for hero section - REMOVED
 
     // Smooth reveal for sections
     const revealSections = () => {
