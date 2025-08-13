@@ -1,20 +1,92 @@
-// Test: Add a simple console log to see if JavaScript loads
-console.log('JavaScript dosyası yüklendi!');
+// Responsive Menu Management
+let isMobile = window.innerWidth <= 768;
+let isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
 
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+function updateMenuVisibility() {
+    const navMenu = document.querySelector('.nav-menu');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+    
+    if (isMobile) {
+        // Mobile: Hide desktop menu, show mobile menu toggle
+        if (navMenu) navMenu.style.display = 'none';
+        if (mobileMenuToggle) mobileMenuToggle.style.display = 'flex';
+        // Don't hide mobile-nav-menu, let CSS handle it
+    } else if (isTablet) {
+        // Tablet: Show desktop menu, hide mobile menu toggle
+        if (navMenu) navMenu.style.display = 'flex';
+        if (mobileMenuToggle) mobileMenuToggle.style.display = 'none';
+        if (mobileNavMenu) mobileNavMenu.style.display = 'none';
+    } else {
+        // Desktop: Show desktop menu, hide mobile menu toggle
+        if (navMenu) navMenu.style.display = 'flex';
+        if (mobileMenuToggle) mobileMenuToggle.style.display = 'none';
+        // Hide mobile menu on desktop
+        if (mobileNavMenu) mobileNavMenu.style.display = 'none';
+    }
+}
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+// Initialize menu on page load
+updateMenuVisibility();
+
+// Update menu on window resize
+window.addEventListener('resize', () => {
+    const wasMobile = isMobile;
+    const wasTablet = isTablet;
+    
+    isMobile = window.innerWidth <= 768;
+    isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
+    
+    if (wasMobile !== isMobile || wasTablet !== isTablet) {
+        updateMenuVisibility();
+    }
 });
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
+// Mobile Menu Toggle
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+const mobileNavClose = document.querySelector('.mobile-nav-close');
+
+if (mobileMenuToggle && mobileNavMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        mobileNavMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking on close button
+    if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            mobileNavMenu.classList.remove('active');
+        });
+    }
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            mobileNavMenu.classList.remove('active');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenuToggle.contains(e.target) && !mobileNavMenu.contains(e.target)) {
+            mobileMenuToggle.classList.remove('active');
+            mobileNavMenu.classList.remove('active');
+        }
+    });
+
+    // Close menu with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            mobileMenuToggle.classList.remove('active');
+            mobileNavMenu.classList.remove('active');
+        }
+    });
+}
+
+
 
 // Navbar background change on scroll
 window.addEventListener('scroll', () => {
@@ -615,10 +687,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     createScrollProgress();
 
-    // Enhanced brand slider with pause on hover
+    // Enhanced brand slider with pause on hover and delayed start
     const brandSlider = document.querySelector('.brand-slider');
     if (brandSlider) {
         const track = brandSlider.querySelector('.brand-slider-track');
+        
+        // Initially pause the animation
+        track.style.animationPlayState = 'paused';
+        
+        // Start animation after page load and loading screen
+        setTimeout(() => {
+            track.style.animationPlayState = 'running';
+        }, 2000); // 2 seconds delay to ensure loading screen is complete
         
         brandSlider.addEventListener('mouseenter', () => {
             track.style.animationPlayState = 'paused';
@@ -796,7 +876,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Video yükleme kontrolü
+// Video yükleme kontrolü - GEÇİCİ OLARAK DEVRE DIŞI
+/*
 document.addEventListener('DOMContentLoaded', () => {
     const video = document.querySelector('.hero-video');
     
@@ -852,7 +933,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.log('❌ Video elementi bulunamadı');
     }
-}); 
+});
+*/ 
 
 // Product Modal Functions
 const productData = {
