@@ -45,27 +45,55 @@ window.addEventListener('resize', () => {
 // Mobile Menu Toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const mobileNavMenu = document.querySelector('.mobile-nav-menu');
-const mobileNavClose = document.querySelector('.mobile-nav-close');
 
 if (mobileMenuToggle && mobileNavMenu) {
     mobileMenuToggle.addEventListener('click', () => {
         mobileMenuToggle.classList.toggle('active');
         mobileNavMenu.classList.toggle('active');
+        
+        // Mobil menü açıkken navbar'ı gizle
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            if (mobileNavMenu.classList.contains('active')) {
+                navbar.style.setProperty('background', 'transparent', 'important');
+                navbar.style.setProperty('backdrop-filter', 'none', 'important');
+                
+                // Mobil menü açıkken menü butonunu gizle
+                mobileMenuToggle.style.setProperty('opacity', '0', 'important');
+                mobileMenuToggle.style.setProperty('visibility', 'hidden', 'important');
+                mobileMenuToggle.style.setProperty('pointer-events', 'none', 'important');
+                mobileMenuToggle.style.setProperty('z-index', '9998', 'important');
+            } else {
+                navbar.style.setProperty('background', 'rgba(255, 255, 255, 0.98)', 'important');
+                navbar.style.setProperty('backdrop-filter', 'blur(20px)', 'important');
+                
+                // Mobil menü kapalıyken menü butonunu göster
+                mobileMenuToggle.style.setProperty('opacity', '1', 'important');
+                mobileMenuToggle.style.setProperty('visibility', 'visible', 'important');
+                mobileMenuToggle.style.setProperty('pointer-events', 'auto', 'important');
+                mobileMenuToggle.style.setProperty('z-index', '10000', 'important');
+            }
+        }
     });
-
-    // Close menu when clicking on close button
-    if (mobileNavClose) {
-        mobileNavClose.addEventListener('click', () => {
-            mobileMenuToggle.classList.remove('active');
-            mobileNavMenu.classList.remove('active');
-        });
-    }
 
     // Close menu when clicking on a link
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenuToggle.classList.remove('active');
             mobileNavMenu.classList.remove('active');
+            
+            // Navbar'ı geri getir
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                navbar.style.setProperty('background', 'rgba(255, 255, 255, 0.98)', 'important');
+                navbar.style.setProperty('backdrop-filter', 'blur(20px)', 'important');
+            }
+            
+            // Menü butonunu geri getir
+            mobileMenuToggle.style.setProperty('opacity', '1', 'important');
+            mobileMenuToggle.style.setProperty('visibility', 'visible', 'important');
+            mobileMenuToggle.style.setProperty('pointer-events', 'auto', 'important');
+            mobileMenuToggle.style.setProperty('z-index', '10000', 'important');
         });
     });
 
@@ -74,6 +102,19 @@ if (mobileMenuToggle && mobileNavMenu) {
         if (!mobileMenuToggle.contains(e.target) && !mobileNavMenu.contains(e.target)) {
             mobileMenuToggle.classList.remove('active');
             mobileNavMenu.classList.remove('active');
+            
+            // Navbar'ı geri getir
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                navbar.style.setProperty('background', 'rgba(255, 255, 255, 0.98)', 'important');
+                navbar.style.setProperty('backdrop-filter', 'blur(20px)', 'important');
+            }
+            
+            // Menü butonunu geri getir
+            mobileMenuToggle.style.setProperty('opacity', '1', 'important');
+            mobileMenuToggle.style.setProperty('visibility', 'visible', 'important');
+            mobileMenuToggle.style.setProperty('pointer-events', 'auto', 'important');
+            mobileMenuToggle.style.setProperty('z-index', '10000', 'important');
         }
     });
 
@@ -82,45 +123,122 @@ if (mobileMenuToggle && mobileNavMenu) {
         if (e.key === 'Escape') {
             mobileMenuToggle.classList.remove('active');
             mobileNavMenu.classList.remove('active');
+            
+            // Navbar'ı geri getir
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                navbar.style.setProperty('background', 'rgba(255, 255, 255, 0.98)', 'important');
+                navbar.style.setProperty('backdrop-filter', 'blur(20px)', 'important');
+            }
+            
+            // Menü butonunu geri getir
+            mobileMenuToggle.style.setProperty('opacity', '1', 'important');
+            mobileMenuToggle.style.setProperty('visibility', 'visible', 'important');
+            mobileMenuToggle.style.setProperty('pointer-events', 'auto', 'important');
+            mobileMenuToggle.style.setProperty('z-index', '10000', 'important');
         }
     });
+
+    // Close menu when clicking on close button (×)
+    const mobileNavClose = document.querySelector('.mobile-nav-close');
+    if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            mobileNavMenu.classList.remove('active');
+            
+            // Navbar'ı geri getir
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                navbar.style.setProperty('background', 'rgba(255, 255, 255, 0.98)', 'important');
+                navbar.style.setProperty('backdrop-filter', 'blur(20px)', 'important');
+            }
+            
+            // Menü butonunu geri getir
+            mobileMenuToggle.style.setProperty('opacity', '1', 'important');
+            mobileMenuToggle.style.setProperty('visibility', 'visible', 'important');
+            mobileMenuToggle.style.setProperty('pointer-events', 'auto', 'important');
+            mobileMenuToggle.style.setProperty('z-index', '10000', 'important');
+        });
+    }
 }
 
 
 
-// Navbar background change on scroll
-window.addEventListener('scroll', () => {
+// Navbar background change on scroll - Desktop ve Mobil için
+function handleNavbarScroll() {
     const navbar = document.querySelector('.navbar');
     const topBar = document.querySelector('.top-bar');
+    const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (!navbar) return;
+    
+    // Mobil cihaz kontrolü
+    const isMobile = window.innerWidth <= 768;
+    
+    console.log('Scroll event triggered, scrollY:', window.scrollY, 'isMobile:', isMobile); // Debug için
     
     if (window.scrollY > 50) {
+        console.log('Moving navbar to top'); // Debug için
         // Scroll yapıldığında navbar'ı en üste taşı
-        navbar.style.position = 'fixed';
-        navbar.style.top = '0';
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        navbar.style.zIndex = '1001';
+        if (isMobile) {
+            navbar.style.setProperty('top', '0', 'important');
+        } else {
+            navbar.style.setProperty('top', '0', 'important');
+        }
+        navbar.style.setProperty('background', 'rgba(255, 255, 255, 0.98)', 'important');
+        navbar.style.setProperty('box-shadow', '0 2px 20px rgba(0, 0, 0, 0.1)', 'important');
+        navbar.style.setProperty('z-index', '1001', 'important');
         
-        // Top bar'ı gizle
-        if (topBar) {
+        // Mobil menüyü de yukarı taşı
+        if (mobileNavMenu) {
+            mobileNavMenu.style.setProperty('top', '0', 'important');
+        }
+        
+        // Top bar'ı gizle (sadece desktop'ta)
+        if (topBar && !isMobile) {
             topBar.style.transform = 'translateY(-100%)';
             topBar.style.transition = 'transform 0.3s ease';
         }
     } else {
+        console.log('Moving navbar to normal position'); // Debug için
         // Sayfa başına dönüldüğünde normal pozisyona getir
-        navbar.style.position = 'fixed';
-        navbar.style.top = '40px';
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-        navbar.style.zIndex = '1000';
+        if (isMobile) {
+            navbar.style.setProperty('top', '32px', 'important');
+        } else {
+            navbar.style.setProperty('top', '32px', 'important');
+        }
+        navbar.style.setProperty('background', 'rgba(255, 255, 255, 0.95)', 'important');
+        navbar.style.setProperty('box-shadow', 'none', 'important');
+        navbar.style.setProperty('z-index', '1000', 'important');
         
-        // Top bar'ı göster
-        if (topBar) {
+        // Mobil menüyü de normal pozisyona getir
+        if (mobileNavMenu) {
+            if (isMobile) {
+                mobileNavMenu.style.setProperty('top', '32px', 'important');
+            } else {
+                mobileNavMenu.style.setProperty('top', '32px', 'important');
+            }
+        }
+        
+        // Top bar'ı göster (sadece desktop'ta)
+        if (topBar && !isMobile) {
             topBar.style.transform = 'translateY(0)';
             topBar.style.transition = 'transform 0.3s ease';
         }
     }
-});
+}
+
+// Desktop scroll event
+window.addEventListener('scroll', handleNavbarScroll);
+
+// Mobil touch events
+window.addEventListener('touchmove', handleNavbarScroll);
+window.addEventListener('touchstart', handleNavbarScroll);
+
+// Mobil scroll events (iOS Safari için)
+window.addEventListener('scroll', handleNavbarScroll, { passive: false });
+document.addEventListener('scroll', handleNavbarScroll, { passive: false });
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1117,4 +1235,168 @@ document.addEventListener('keydown', function(event) {
     }
 }); 
 
- 
+// Gold Container Effects
+function createGoldEffects() {
+    const container = document.getElementById('goldContainer');
+    if (!container) return;
+
+    const particlesContainer = container.querySelector('.gold-particles');
+    const sparklesContainer = container.querySelector('.gold-sparkles');
+
+    // Create floating gold particles
+    for (let i = 0; i < 20; i++) {
+        createGoldParticle(particlesContainer);
+    }
+
+    // Create sparkles
+    for (let i = 0; i < 15; i++) {
+        createGoldSparkle(sparklesContainer);
+    }
+
+    // Add mouse interaction
+    container.addEventListener('mousemove', (e) => {
+        createMouseSparkle(e, sparklesContainer);
+    });
+
+    // Add click effect
+    container.addEventListener('click', (e) => {
+        createClickBurst(e, sparklesContainer);
+    });
+}
+
+function createGoldParticle(container) {
+    const particle = document.createElement('div');
+    particle.style.cssText = `
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, #ffd700, #ffed4e);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: float 8s infinite linear;
+        opacity: 0.7;
+    `;
+
+    // Random position
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 8 + 's';
+    particle.style.animationDuration = (6 + Math.random() * 4) + 's';
+
+    container.appendChild(particle);
+}
+
+function createGoldSparkle(container) {
+    const sparkle = document.createElement('div');
+    sparkle.style.cssText = `
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #ffd700;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        pointer-events: none;
+        animation: sparkle 4s infinite ease-in-out;
+        opacity: 0.8;
+    `;
+
+    // Random position
+    sparkle.style.left = Math.random() * 100 + '%';
+    sparkle.style.top = Math.random() * 100 + '%';
+    sparkle.style.animationDelay = Math.random() * 4 + 's';
+
+    container.appendChild(sparkle);
+}
+
+function createMouseSparkle(e, container) {
+    if (Math.random() > 0.7) { // 30% chance
+        const sparkle = document.createElement('div');
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        sparkle.style.cssText = `
+            position: absolute;
+            left: ${x}px;
+            top: ${y}px;
+            width: 8px;
+            height: 8px;
+            background: #ffd700;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: mouseSparkle 1s ease-out forwards;
+            opacity: 0.9;
+        `;
+
+        container.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 1000);
+    }
+}
+
+function createClickBurst(e, container) {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Create burst effect
+    for (let i = 0; i < 8; i++) {
+        const burst = document.createElement('div');
+        const angle = (i * 45) * Math.PI / 180;
+        const distance = 30;
+
+        burst.style.cssText = `
+            position: absolute;
+            left: ${x}px;
+            top: ${y}px;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: burst 0.8s ease-out forwards;
+            opacity: 1;
+        `;
+
+        burst.style.setProperty('--angle', angle + 'rad');
+        burst.style.setProperty('--distance', distance + 'px');
+
+        container.appendChild(burst);
+        setTimeout(() => burst.remove(), 800);
+    }
+}
+
+// Add CSS animations
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+        50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        100% { transform: translateY(0px) rotate(360deg); opacity: 0.7; }
+    }
+
+    @keyframes sparkle {
+        0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+        50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+    }
+
+    @keyframes mouseSparkle {
+        0% { transform: scale(0) rotate(0deg); opacity: 0.9; }
+        50% { transform: scale(1.5) rotate(180deg); opacity: 1; }
+        100% { transform: scale(0) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes burst {
+        0% { 
+            transform: translate(0, 0) scale(1); 
+            opacity: 1; 
+        }
+        100% { 
+            transform: translate(calc(cos(var(--angle)) * var(--distance)), calc(sin(var(--angle)) * sin(var(--angle)) * var(--distance))) scale(0); 
+            opacity: 0; 
+        }
+    }
+`;
+
+document.head.appendChild(style);
+
+// Initialize gold effects when page loads
+document.addEventListener('DOMContentLoaded', createGoldEffects);
