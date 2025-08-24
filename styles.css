@@ -43,6 +43,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: -120px;
 }
 
 .top-bar-left .contact-info {
@@ -149,7 +150,7 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
     padding: 1.2rem 0;
     transition: top 0.3s ease;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    overflow-x: hidden;
+    overflow-x: visible;
     margin: 0;
 }
 
@@ -187,12 +188,13 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     box-sizing: border-box;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    gap: 40px;
 }
 
 .nav-logo {
@@ -201,6 +203,7 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
     gap: 12px;
     text-decoration: none;
     transition: all 0.3s ease;
+    margin-left: -120px;
 }
 
 .nav-logo:hover {
@@ -267,6 +270,7 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin-left: auto;
 }
 
 .nav-link {
@@ -1052,6 +1056,12 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
         gap: 15px;
     }
     
+    .top-bar-content {
+        margin-left: 0;
+    }
+    
+
+    
     .contact-link span {
         display: none;
     }
@@ -1070,6 +1080,7 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
         position: relative;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
     
     .nav-menu {
@@ -1083,11 +1094,13 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
     
     .nav-logo {
         order: 0;
+        margin-left: 0;
     }
     
     .mobile-menu-toggle {
-        order: 0;
+        order: 1;
         z-index: 10000 !important; /* Çok yüksek z-index */
+        margin-left: 0;
     }
     
     .nav-logo {
@@ -2885,28 +2898,31 @@ h1.visible, h2.visible, h3.visible, p.visible {
 }
 
 .company-logo-simple {
-    width: 400px;
-    height: 300px;
+    width: 450px;
+    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
     transition: all 0.3s ease;
 }
 
 .company-logo-simple:hover {
-    transform: scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+    box-shadow: none;
 }
 
 .logo-simple-image {
     width: 100%;
-    max-width: 320px;
-    height: auto;
-    padding: 30px;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0;
     border-radius: 10px;
+    object-fit: contain;
+    object-position: center;
 }
 
 /* Company Info */
@@ -4039,13 +4055,16 @@ h1.visible, h2.visible, h3.visible, p.visible {
     }
     
     .company-logo-simple {
-        width: 300px;
-        height: 220px;
+        width: 350px;
+        height: 270px;
     }
     
     .logo-simple-image {
-        max-width: 250px;
-        padding: 20px;
+        max-width: 100%;
+        max-height: 100%;
+        padding: 0;
+        object-fit: contain;
+        object-position: center;
     }
     
     .company-name-simple {
