@@ -567,25 +567,30 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
 .brand-slider-section {
     padding: 100px 0;
     background: #fafafa;
+    width: 100%;
+    overflow: hidden;
 }
 
 .brand-slider {
     position: relative;
     overflow: hidden;
     margin-top: 60px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
 }
 
 .brand-slider-track {
     display: flex;
     animation: scroll 30s linear infinite;
-    width: calc(150px * 16); /* 8 brands * 2 (duplicated) */
+    width: calc(320px * 8); /* 8 brands with optimized spacing */
 }
 
 .brand-item {
     flex-shrink: 0;
-    width: 300px;
+    width: 280px;
     height: 180px;
-    margin: 0 40px;
+    margin: 0 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -623,11 +628,11 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 18px;
+    padding: 0;
     transition: all 0.3s ease;
     border-radius: 15px;
-    background: white;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    background: transparent;
+    box-shadow: none;
     filter: grayscale(0%);
     opacity: 1;
 }
@@ -642,7 +647,7 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-340px * 8)); /* Move by half the total width */
+        transform: translateX(calc(-320px * 8)); /* Move by total width of all brands */
     }
 }
 
@@ -662,37 +667,41 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
     }
     
     .brand-slider-track {
-        width: calc(120px * 16); /* Smaller width for mobile */
-        animation: scroll 20s linear infinite; /* Faster animation for mobile */
+        width: calc(150px * 16); /* Bigger width for mobile */
+        animation: scroll 35s linear infinite; /* Slower animation for mobile */
     }
     
     .brand-item {
-        width: 120px; /* Smaller width for mobile */
-        height: 120px; /* Smaller height for mobile */
-        margin: 0 20px; /* Smaller margin for mobile */
+        width: 150px; /* Bigger width for mobile */
+        height: 150px; /* Bigger height for mobile */
+        margin: 0 25px; /* Bigger margin for mobile */
         border-radius: 15px;
     }
     
     .brand-item img {
-        padding: 12px; /* Smaller padding for mobile */
+        padding: 0; /* No padding for mobile */
         border-radius: 10px;
+        background: transparent;
+        box-shadow: none;
     }
 }
 
 @media (max-width: 480px) {
     .brand-slider-track {
-        width: calc(100px * 16); /* Even smaller width for small mobile */
-        animation: scroll 15s linear infinite; /* Even faster animation */
+        width: calc(130px * 16); /* Bigger width for small mobile */
+        animation: scroll 30s linear infinite; /* Slower animation */
     }
     
     .brand-item {
-        width: 100px; /* Even smaller width for small mobile */
-        height: 100px; /* Even smaller height for small mobile */
-        margin: 0 15px; /* Even smaller margin for small mobile */
+        width: 130px; /* Bigger width for small mobile */
+        height: 130px; /* Bigger height for small mobile */
+        margin: 0 20px; /* Bigger margin for small mobile */
     }
     
     .brand-item img {
-        padding: 10px; /* Even smaller padding for small mobile */
+        padding: 0; /* No padding for small mobile */
+        background: transparent;
+        box-shadow: none;
     }
 }
 
