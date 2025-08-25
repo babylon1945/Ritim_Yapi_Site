@@ -1007,6 +1007,40 @@ html body .top-bar .top-bar-right a[href*="instagram"] i {
     color: #bdc3c7;
 }
 
+/* Footer Mobile Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        text-align: center !important;
+    }
+    
+    .footer-section {
+        min-height: auto !important;
+        text-align: center !important;
+    }
+    
+    .footer-section:nth-child(1),
+    .footer-section:nth-child(2) {
+        display: none !important;
+    }
+    
+    .footer-section:nth-child(3) {
+        display: block !important;
+        text-align: center !important;
+    }
+    
+    .footer-section:nth-child(3) h3,
+    .footer-section:nth-child(3) p {
+        text-align: center !important;
+    }
+    
+    .footer-bottom {
+        text-align: center !important;
+        padding-top: 15px !important;
+    }
+}
+
 /* Responsive Design */
 /* Large Tablets */
 @media (max-width: 1200px) {
